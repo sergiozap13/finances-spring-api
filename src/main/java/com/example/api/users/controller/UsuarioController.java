@@ -1,8 +1,8 @@
-package com.example.api_fin.users.controller;
+package com.example.api.users.controller;
 
-import com.example.api_fin.users.dto.UsuarioDTO;
-import com.example.api_fin.users.model.Usuario;
-import com.example.api_fin.users.service.UsuarioService;
+import com.example.api.users.dto.UsuarioDTO;
+import com.example.api.users.model.Usuario;
+import com.example.api.users.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

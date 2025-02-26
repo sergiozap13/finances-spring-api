@@ -1,6 +1,6 @@
-package com.example.api_fin.users.repository;
+package com.example.api.users.repository;
 
-import com.example.api_fin.users.model.Usuario;
+import com.example.api.users.model.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.UUID;
 import java.util.Optional;

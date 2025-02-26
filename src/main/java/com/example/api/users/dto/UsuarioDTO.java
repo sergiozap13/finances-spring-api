@@ -1,4 +1,4 @@
-package com.example.api_fin.users.dto;
+package com.example.api.users.dto;
 
 import lombok.Getter;
 import lombok.Setter;

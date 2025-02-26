@@ -1,8 +1,8 @@
-package com.example.api_fin.expenses.controller;
+package com.example.api.expenses.controller;
 
-import com.example.api_fin.expenses.dto.ExpenseDTO;
-import com.example.api_fin.expenses.model.Expense;
-import com.example.api_fin.expenses.service.ExpensesService;
+import com.example.api.expenses.dto.ExpenseDTO;
+import com.example.api.expenses.model.Expense;
+import com.example.api.expenses.service.ExpensesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

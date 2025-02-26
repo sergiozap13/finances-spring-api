@@ -1,6 +1,6 @@
-package com.example.api_fin.expenses.dto;
+package com.example.api.expenses.dto;
 
-import com.example.api_fin.expenses.model.Category;
+import com.example.api.expenses.model.Category;
 import lombok.Getter;
 import lombok.Setter;
 import java.time.LocalDateTime;

@@ -1,10 +1,10 @@
-package com.example.api_fin.expenses.service;
+package com.example.api.expenses.service;
 
-import com.example.api_fin.expenses.dto.ExpenseDTO;
-import com.example.api_fin.expenses.model.Expense;
-import com.example.api_fin.expenses.repository.ExpensesRepository;
-import com.example.api_fin.users.model.Usuario;
-import com.example.api_fin.users.repository.UsuarioRepository;
+import com.example.api.expenses.dto.ExpenseDTO;
+import com.example.api.expenses.model.Expense;
+import com.example.api.expenses.repository.ExpensesRepository;
+import com.example.api.users.model.Usuario;
+import com.example.api.users.repository.UsuarioRepository;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.UUID;

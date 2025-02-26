@@ -1,7 +1,7 @@
-package com.example.api_fin.expenses.service;
+package com.example.api.expenses.service;
 
-import com.example.api_fin.expenses.dto.ExpenseDTO;
-import com.example.api_fin.expenses.model.Expense;
+import com.example.api.expenses.dto.ExpenseDTO;
+import com.example.api.expenses.model.Expense;
 import java.util.List;
 import java.util.UUID;
 

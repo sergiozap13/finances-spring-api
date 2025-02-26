@@ -1,6 +1,6 @@
-package com.example.api_fin.users.model;
+package com.example.api.users.model;
 
-import com.example.api_fin.expenses.model.Expense;
+import com.example.api.expenses.model.Expense;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;

@@ -1,8 +1,8 @@
-package com.example.api_fin.users.service;
+package com.example.api.users.service;
 
-import com.example.api_fin.users.dto.UsuarioDTO;
-import com.example.api_fin.users.model.Usuario;
-import com.example.api_fin.users.repository.UsuarioRepository;
+import com.example.api.users.dto.UsuarioDTO;
+import com.example.api.users.model.Usuario;
+import com.example.api.users.repository.UsuarioRepository;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.UUID;

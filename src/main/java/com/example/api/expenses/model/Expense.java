@@ -1,6 +1,6 @@
-package com.example.api_fin.expenses.model;
+package com.example.api.expenses.model;
 
-import com.example.api_fin.users.model.Usuario;
+import com.example.api.users.model.Usuario;
 import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

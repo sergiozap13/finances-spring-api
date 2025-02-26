@@ -1,4 +1,4 @@
-package com.example.api_fin.expenses.model;
+package com.example.api.expenses.model;
 
 public enum Category {
     FIXED_EXPENSE("Gasto fijo"),
