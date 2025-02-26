@@ -6,6 +6,9 @@ import com.example.api.expenses.repository.ExpensesRepository;
 import com.example.api.users.model.Usuario;
 import com.example.api.users.repository.UsuarioRepository;
 import org.springframework.stereotype.Service;
+
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -25,6 +28,34 @@ public class ExpensesServiceImpl implements ExpensesService{
     @Override
     public List<Expense> obtenerTodos() {
         return this.expensesRepository.findAll();
+    }
+
+    @Override
+    public List<Expense> getMonthExpensesByUserId( UUID user_id, int month ) {
+        usuarioRepository.findById(user_id)
+                .orElseThrow( () -> new RuntimeException("Usuario no encontrado") );
+
+        LocalDateTime initialDate = LocalDateTime.of(LocalDateTime.now().getYear(), month, 1, 0, 0, 0);
+
+        LocalDateTime finalDate = initialDate.plusMonths(1);
+
+        return expensesRepository.findMonthExpensesByUserId(initialDate, finalDate, user_id);
+    }
+
+    @Override
+    public List<Expense> getActualMonthExpensesByUserId( UUID user_id ) {
+
+        usuarioRepository.findById(user_id)
+                .orElseThrow( () -> new RuntimeException("Usuario no encontrado") );
+
+        // colocamos el mes actual
+        LocalDateTime initialDate = LocalDateTime.of(LocalDateTime.now().getYear(),
+                LocalDateTime.now().getMonth(), 1, 0, 0, 0);
+
+        LocalDateTime finalDate = initialDate.plusMonths(1);
+
+        return expensesRepository.findMonthExpensesByUserId(initialDate, finalDate, user_id);
+
     }
 
     @Override

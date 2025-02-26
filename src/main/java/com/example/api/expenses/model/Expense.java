@@ -1,6 +1,7 @@
 package com.example.api.expenses.model;
 
 import com.example.api.users.model.Usuario;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -20,6 +21,7 @@ public class Expense {
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
+    @JsonIgnore
     private Usuario usuario;
 
     @Column(nullable = false)
