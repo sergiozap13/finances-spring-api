@@ -1,12 +1,11 @@
 package com.example.api.expenses.dto;
 
 import com.example.api.expenses.model.Category;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-@Getter @Setter
+@Data
 public class ExpenseDTO {
 
     private UUID usuarioId; // Solo el ID del usuario

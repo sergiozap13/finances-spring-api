@@ -3,16 +3,14 @@ package com.example.api.users.model;
 import com.example.api.expenses.model.Expense;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import java.util.List;
 import java.util.UUID;
 
 @Entity
 @Table(name = "usuarios")
-@Getter @Setter  @NoArgsConstructor @EqualsAndHashCode
+@Data
+@NoArgsConstructor
 public class Usuario {
 
     @Id
@@ -38,6 +36,5 @@ public class Usuario {
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnore
     private List<Expense> gastos;
-
 
 }
