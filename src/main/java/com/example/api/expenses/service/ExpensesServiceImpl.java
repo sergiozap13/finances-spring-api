@@ -5,7 +5,9 @@ import com.example.api.expenses.model.Expense;
 import com.example.api.expenses.repository.ExpensesRepository;
 import com.example.api.users.model.Usuario;
 import com.example.api.users.repository.UsuarioRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -13,39 +15,37 @@ import java.util.List;
 import java.util.UUID;
 
 @Service
+@AllArgsConstructor
 public class ExpensesServiceImpl implements ExpensesService{
 
     // En el servicio inyectamos por constructor nuestro repository
     private final ExpensesRepository expensesRepository;
     private final UsuarioRepository usuarioRepository;
 
-    public ExpensesServiceImpl(ExpensesRepository expensesRepository, UsuarioRepository usuarioRepository) {
-
-        this.expensesRepository = expensesRepository;
-        this.usuarioRepository = usuarioRepository;
-    }
-
     @Override
+    @Transactional(readOnly = true)
     public List<Expense> obtenerTodos() {
         return this.expensesRepository.findAll();
     }
 
     @Override
-    public List<Expense> getMonthExpensesByUserId( UUID user_id, int month ) {
-        usuarioRepository.findById(user_id)
+    @Transactional(readOnly = true)
+    public List<Expense> getMonthExpensesByUserId( UUID userId, int month ) {
+        usuarioRepository.findById(userId)
                 .orElseThrow( () -> new RuntimeException("Usuario no encontrado") );
 
         LocalDateTime initialDate = LocalDateTime.of(LocalDateTime.now().getYear(), month, 1, 0, 0, 0);
 
         LocalDateTime finalDate = initialDate.plusMonths(1);
 
-        return expensesRepository.findMonthExpensesByUserId(initialDate, finalDate, user_id);
+        return expensesRepository.findMonthExpensesByUserId(initialDate, finalDate, userId);
     }
 
     @Override
-    public List<Expense> getActualMonthExpensesByUserId( UUID user_id ) {
+    @Transactional(readOnly = true)
+    public List<Expense> getActualMonthExpensesByUserId( UUID userId ) {
 
-        usuarioRepository.findById(user_id)
+        usuarioRepository.findById(userId)
                 .orElseThrow( () -> new RuntimeException("Usuario no encontrado") );
 
         // colocamos el mes actual
@@ -54,11 +54,12 @@ public class ExpensesServiceImpl implements ExpensesService{
 
         LocalDateTime finalDate = initialDate.plusMonths(1);
 
-        return expensesRepository.findMonthExpensesByUserId(initialDate, finalDate, user_id);
+        return expensesRepository.findMonthExpensesByUserId(initialDate, finalDate, userId);
 
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Expense obtenerPorId(UUID id) {
         return this.expensesRepository.findById(id)
                 .orElseThrow( () -> new RuntimeException("No se pudo obtener el gasto " + id) );

@@ -16,7 +16,7 @@ public interface ExpensesRepository extends JpaRepository<Expense, UUID> {
     List<Expense> findMonthExpensesByUserId(
             @Param("initialDate") LocalDateTime initialDate,
             @Param("finalDate") LocalDateTime finalDate,
-            @Param("userId") UUID user_id
+            @Param("userId") UUID userId
     );
 
 }
